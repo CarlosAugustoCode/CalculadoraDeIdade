@@ -1,7 +1,5 @@
 // Desenvolver a calculadora idade. //
-
 // 1. Pegar os valores OK
-
 // 2. Calcular a Idade 
 //    a. Com base no ano OK
 //    b. Com mês (EXTRA)
@@ -15,13 +13,9 @@
 //    Acima de 65           Idoso
 
 // 4. Organizar o objeto pessoa para salvar na lista
-
 // 5. Cadastrar a pessoa na lista
-
 // 6. Função para carregar as pessoas, carrega a lista do localStorage, chamar ao carregar a página
-
 // 7. Renderizar o conteúdo da tabela com as pessoas cadastradas
-
 // 8. Botão para limpar os registros
 
 function calcular(event) {
@@ -30,7 +24,7 @@ function calcular(event) {
 
     // 1. Pegar os valores
     let usuario = receberValores()
-
+    
     // 2. Calcular a Idade
     //    a. Com base no ano
     let idadeCalculada = calcularIdade(usuario.ano_nascimento)
@@ -60,15 +54,16 @@ function receberValores() {
         dia_nascimento: diaNascimento,
         mes_nascimento: mesNascimento,
         ano_nascimento: anoNascimento,
+        
     }
     console.log(dadosUsuario);
     return dadosUsuario
 }
 
 // 2. Calcular a Idade
-function calcularIdade(ano_nascimento) {
+function calcularIdade(dia_nascimento, mes_nascimento, ano_nascimento) {
     let dataAtual = new Date().getFullYear();
-    idade = dataAtual - ano_nascimento;
+    idade = dataAtual - dia_nascimento, mes_nascimento, ano_nascimento;
     console.log(idade);
     return idade;
 }
@@ -135,3 +130,27 @@ function carregarUsuarios() {
 }
 
 window.addEventListener("DOMContentLoaded", () => carregarUsuarios() )
+
+// 7. Renderizar o conteúdo da tabela com as pessoas cadastradas
+function montarTabela(listaUsuarios) {
+    let tabela = document.getElementById("corpo-tabela")
+
+    let template = ""
+
+    listaUsuarios.forEach(usuario => {
+        template += `<tr>
+            <td data-cell="nome">${usuario.nome}</td>
+            <td data-cell="data de nascimento">${usuario.dia_nascimento}/${usuario.mes_nascimento}/${usuario.ano_nascimento}</td>
+            <td data-cell="idade">${usuario.nascimento}</td>
+            <td data-cell="classificação do IMC">${usuario.classificacao}</td>
+        </tr>`
+    })
+
+    tabela.innerHTML = template;
+}
+
+// 8. Botão para limpar os registros
+function deletarRegistros() {
+    localStorage.removeItem("usuariosCadastrados")
+    window.location.reload()
+}

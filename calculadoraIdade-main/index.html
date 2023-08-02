@@ -18,15 +18,15 @@
             <form onsubmit="calcular(event)" method="post">
                 <div class="campo-form">
                     <label for="nome">Nome:</label>
-                    <input type="text" name="campo-nome" id="nome" placeholder="Insira seu nome completo" >
+                    <input required type="text" name="campo-nome" id="nome" placeholder="Insira seu nome completo" >
                 </div>
 
                 <div class="campo-form">
                     <label for="dia-nascimento">Data de nascimento:</label>
                     <div class="grupo-data-nascimento">
-                        <input type="number" name="campo-dia-nascimento" id="dia_nascimento" placeholder="Dia">
-                        <input type="number" name="campo-mês-nascimento" id="mes_nascimento" placeholder="Mês">
-                        <input type="number" name="campo-ano-nascimento" id="ano_nascimento" placeholder="Ano">
+                        <input required type="number" name="campo-dia-nascimento" id="dia_nascimento" placeholder="Dia">
+                        <input required type="number" name="campo-mês-nascimento" id="mes_nascimento" placeholder="Mês">
+                        <input required type="number" name="campo-ano-nascimento" id="ano_nascimento" placeholder="Ano">
                     </div>
                 </div>                
 
@@ -58,7 +58,7 @@
                     </tr>                     -->
                 </tbody>
             </table>
-            <button class="botao-tabela">Limpar Registros</button>
+            <button onclick="deletarRegistros()" class="botao-tabela">Limpar Registros</button>
         </section>
     </main>
 </body>
