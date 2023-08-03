@@ -140,8 +140,8 @@ function montarTabela(listaUsuarios) {
     listaUsuarios.forEach(usuario => {
         template += `<tr>
             <td data-cell="nome">${usuario.nome}</td>
-            <td data-cell="data de nascimento">${usuario.dia_nascimento}/${usuario.mes_nascimento}/${usuario.ano_nascimento}</td>
-            <td data-cell="idade">${usuario.nascimento}</td>
+            <td data-cell="data de nascimento">${usuario.dia_nascimento} / ${usuario.mes_nascimento} / ${usuario.ano_nascimento}</td>
+            <td data-cell="idade">${usuario.nascimento} anos </td>
             <td data-cell="classificação do IMC">${usuario.classificacao}</td>
         </tr>`
     })
